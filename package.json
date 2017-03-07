@@ -1,7 +1,7 @@
 {
-  "name": "ng6-starter",
-  "version": "0.0.1",
-  "description": "Starter for Angular + ES6 + (Webpack or JSPM)",
+  "name": "angularjs-starter",
+  "version": "0.0.2",
+  "description": "Starter for Angular + ES6 + Webpack",
   "main": "index.js",
   "dependencies": {
     "angular": "1.6.0",
