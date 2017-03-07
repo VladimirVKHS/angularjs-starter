@@ -1,3 +1,5 @@
+var path = require('path');
+
 module.exports = function (config) {
   config.set({
     // base path used to resolve all patterns
@@ -28,12 +30,20 @@ module.exports = function (config) {
 
     webpack: {
       devtool: 'inline-source-map',
+      resolve: {
+        extensions: ['.ts', '.js'],
+        modules: [
+          path.join(__dirname, 'src'),
+          'node_modules'
+        ]
+      },
       module: {
         rules: [
           { test: /\.js/, exclude: [/app\/lib/, /node_modules/], loader: 'babel-loader' },
           { test: /\.html$/, loader: 'raw-loader' },
-          { test: /\.(scss|sass)$/, loaders: ['style-loader','css-loader', 'sass-loader'] },
-          { test: /\.css$/, loaders: ['style', 'css'] }
+          { test: /\.(scss|sass)$/, loaders: ['style-loader', 'css-loader', 'sass-loader'] },
+          { test: /\.css$/, loaders: ['style', 'css'] },
+          { test: /\.ts?$/, loader: 'awesome-typescript-loader' }
         ]
       }
     },

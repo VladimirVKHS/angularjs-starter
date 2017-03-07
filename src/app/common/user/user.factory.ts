@@ -1,12 +1,17 @@
+interface User {
+  isSignedIn: boolean;
+}
+
+
 let UserFactory = function () {
-  const user = {};
+  let user: User = { isSignedIn: false };
 
   let getUser = () => {
     return user;
   };
 
   let isSignedIn = () => {
-    return user.isSignedIn; 
+    return user.isSignedIn;
   };
 
   return { getUser, isSignedIn };

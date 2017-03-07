@@ -1,9 +1,11 @@
-import NavbarModule from './navbar'
+import HomeModule from './home'
+import { mock } from 'angular'
+import { expect } from 'chai'
 
-describe('Navbar', () => {
+describe('Home', () => {
   let $rootScope, $state, $location, $componentController, $compile;
 
-  beforeEach(window.module(NavbarModule));
+  beforeEach(mock.module(HomeModule));
 
   beforeEach(inject(($injector) => {
     $rootScope = $injector.get('$rootScope');
@@ -15,13 +17,18 @@ describe('Navbar', () => {
 
   describe('Module', () => {
     // top-level specs: i.e., routes, injection, naming
+    it('default component should be home', () => {
+      $location.url('/');
+      $rootScope.$digest();
+      expect($state.current.component).to.eq('home');
+    });
   });
 
   describe('Controller', () => {
     // controller specs
     let controller;
     beforeEach(() => {
-      controller = $componentController('navbar', {
+      controller = $componentController('home', {
         $scope: $rootScope.$new()
       });
     });
@@ -37,12 +44,12 @@ describe('Navbar', () => {
 
     beforeEach(() => {
       scope = $rootScope.$new();
-      template = $compile('<navbar></navbar>')(scope);
+      template = $compile('<home></home>')(scope);
       scope.$apply();
     });
 
     it('has name in template', () => {
-      expect(template.find('h1').find('a').html()).to.eq('navbar');
+      expect(template.find('h1').html()).to.eq('Found in home.html');
     });
 
   });

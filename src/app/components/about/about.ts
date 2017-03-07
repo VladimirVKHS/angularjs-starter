@@ -1,8 +1,8 @@
-import angular from 'angular';
+import { module } from 'angular';
 import uiRouter from 'angular-ui-router';
 import aboutComponent from './about.component';
 
-let aboutModule = angular.module('about', [
+let aboutModule = module('about', [
   uiRouter
 ])
 
@@ -16,7 +16,7 @@ let aboutModule = angular.module('about', [
 })
 
 .component('about', aboutComponent)
-  
+
 .name;
 
 export default aboutModule;

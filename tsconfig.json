@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib":["es6","dom","es2015.promise"],
+    "module": "commonjs",
+    "sourceMap":false,
+    "inlineSourceMap": true,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    "typeRoots": ["./node_modules/@types"]
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

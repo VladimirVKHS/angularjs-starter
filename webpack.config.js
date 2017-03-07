@@ -5,7 +5,14 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   devtool: 'source-map',
   entry: {
-     app: ['./src/app/app.js']
+    app: ['./src/app/app.ts']
+  },
+  resolve: {
+    extensions: ['.ts', '.js'],
+    modules: [
+      path.join(__dirname, 'src'),
+      'node_modules'
+    ]
   },
   output: {
     filename: '[name].bundle.js',
@@ -17,7 +24,8 @@ module.exports = {
       { test: /\.js$/, exclude: [/app\/lib/, /node_modules/], loaders: ['ng-annotate-loader', 'babel-loader'] },
       { test: /\.html$/, loader: 'raw-loader' },
       { test: /\.(scss|sass)$/, loaders: ['style-loader', 'css-loader', 'sass-loader'] },
-      { test: /\.css$/, loaders: ['style-loader', 'css-loader'] }
+      { test: /\.css$/, loaders: ['style-loader', 'css-loader'] },
+      { test: /\.ts?$/, loader: 'awesome-typescript-loader' },
     ]
   },
   plugins: [

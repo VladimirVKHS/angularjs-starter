@@ -1,4 +1,4 @@
-import template from './about.html';
+const template = require('./about.html');
 import controller from './about.controller';
 import './about.scss';
 

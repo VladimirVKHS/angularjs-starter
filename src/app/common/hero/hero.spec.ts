@@ -1,12 +1,14 @@
+import { mock } from 'angular';
 import HeroModule from './hero'
 import HeroController from './hero.controller';
 import HeroComponent from './hero.component';
-import HeroTemplate from './hero.html';
+const HeroTemplate = require('./hero.html');
+import { expect } from 'chai'
 
 describe('Hero', () => {
   let $rootScope, makeController;
 
-  beforeEach(window.module(HeroModule));
+  beforeEach(mock.module(HeroModule));
   beforeEach(inject((_$rootScope_) => {
     $rootScope = _$rootScope_;
     makeController = () => {

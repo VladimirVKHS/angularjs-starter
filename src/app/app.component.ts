@@ -1,4 +1,4 @@
-import template from './app.html';
+const template = require('./app.html');
 import './app.scss';
 
 let appComponent = {

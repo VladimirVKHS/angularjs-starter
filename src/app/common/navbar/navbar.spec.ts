@@ -1,9 +1,11 @@
-import AboutModule from './about'
+import NavbarModule from './navbar'
+import { mock } from 'angular'
+import { expect } from 'chai'
 
-describe('About', () => {
+describe('Navbar', () => {
   let $rootScope, $state, $location, $componentController, $compile;
 
-  beforeEach(window.module(AboutModule));
+  beforeEach(mock.module(NavbarModule));
 
   beforeEach(inject(($injector) => {
     $rootScope = $injector.get('$rootScope');
@@ -15,18 +17,13 @@ describe('About', () => {
 
   describe('Module', () => {
     // top-level specs: i.e., routes, injection, naming
-    it('About component should be visible when navigates to /about', () => {
-      $location.url('/about');
-      $rootScope.$digest();
-      expect($state.current.component).to.eq('about');
-    });
   });
 
   describe('Controller', () => {
     // controller specs
     let controller;
     beforeEach(() => {
-      controller = $componentController('about', {
+      controller = $componentController('navbar', {
         $scope: $rootScope.$new()
       });
     });
@@ -42,12 +39,12 @@ describe('About', () => {
 
     beforeEach(() => {
       scope = $rootScope.$new();
-      template = $compile('<about></about>')(scope);
+      template = $compile('<navbar></navbar>')(scope);
       scope.$apply();
     });
 
     it('has name in template', () => {
-      expect(template.find('h1').html()).to.eq('about');
+      expect(template.find('h1').find('a').html()).to.eq('navbar');
     });
 
   });

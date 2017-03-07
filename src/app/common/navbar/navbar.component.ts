@@ -1,4 +1,4 @@
-import template from './navbar.html';
+const template = require('./navbar.html');
 import controller from './navbar.controller';
 import './navbar.scss';
 
