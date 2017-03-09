@@ -19,12 +19,13 @@ module.exports = function (config) {
       require('karma-jasmine'),
       require("karma-chrome-launcher"),
       require("karma-sourcemap-loader"),
-      require("karma-webpack")
+      require("karma-webpack"),
+      require("karma-coverage")
     ],
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: { 'spec.bundle.js': ['webpack', 'sourcemap'] },
+    preprocessors: { 'spec.bundle.js': ['webpack', 'sourcemap', 'coverage'] },
 
     webpack: {
       devtool: 'inline-source-map',
@@ -43,7 +44,7 @@ module.exports = function (config) {
     },
 
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage'],
 
     // web server port
     port: 9876,
